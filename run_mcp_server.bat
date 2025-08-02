@@ -4,13 +4,12 @@ cd /d "%~dp0"
 
 REM Check if virtual environment exists
 if not exist "venv" (
-    echo Virtual environment not found. Creating it...
-    python -m venv venv
-    call venv\Scripts\activate.bat
-    pip install -r requirements.txt
+    python -m venv venv >nul 2>&1
+    call venv\Scripts\activate.bat >nul 2>&1
+    pip install -r requirements.txt >nul 2>&1
 ) else (
-    call venv\Scripts\activate.bat
+    call venv\Scripts\activate.bat >nul 2>&1
 )
 
-echo Starting PPT MCP Server...
+REM Run the MCP server (no echo statements to avoid JSON parsing issues)
 python ppt_mcp_server.py

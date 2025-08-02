@@ -27,7 +27,7 @@ from docx.shared import Inches as DocxInches
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-# Initialize FastMCP server
+# Initialize FastMCP server without banner for MCP compatibility
 mcp = FastMCP("PPT Document Processor")
 
 class PPTExtractor:
@@ -469,4 +469,7 @@ async def create_presentation_from_structure(structure_data: Dict[str, Any], out
 
 
 if __name__ == "__main__":
-    mcp.run()
+    # Run with stdio transport and suppress banner for MCP compatibility
+    import os
+    os.environ["FASTMCP_QUIET"] = "1"  # Try to suppress FastMCP banner
+    mcp.run(transport="stdio")
