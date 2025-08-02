@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "ppt-processor": {
+      "command": "C:\\path\\to\\ppt-mcp-server\\venv\\Scripts\\python.exe",
+      "args": ["C:\\path\\to\\ppt-mcp-server\\ppt_mcp_server.py"],
+      "env": {}
+    }
+  }
+}
