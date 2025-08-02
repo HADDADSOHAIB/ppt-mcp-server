@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "ppt-processor": {
+      "command": "python",
+      "args": ["/Users/haddad/ppt-mcp-server/ppt_mcp_server.py"],
+      "env": {}
+    }
+  }
+}
